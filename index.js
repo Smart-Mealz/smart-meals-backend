@@ -27,7 +27,13 @@ app.use("/api/v1", mealkitsRouter);
 app.use("/api/v1", cartRouter);
 //Contact route
 app.use("/", contactRouter);
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+    method: ["POST"],
+  })
+);
 
 const port = config.PORT || 5000;
 // Listen for incoming request
