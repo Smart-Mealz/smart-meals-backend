@@ -27,7 +27,8 @@ app.use("/api/v1", cartRouter);
 //Contact route
 app.use("/", contactRouter);
 
+const port = config.PORT || 5000;
 // Listen for incoming request
-app.listen(config.PORT, () => {
-  console.log(`Server is listening on port ${config.PORT}`);
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
