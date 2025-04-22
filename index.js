@@ -19,6 +19,13 @@ const app = express();
 //Use global middlewares
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://smartmealz.netlify.app"],
+    credentials: true,
+  })
+);
+
 //User route
 app.use("/api/v1", userRouter);
 //Mealkit route
@@ -27,13 +34,6 @@ app.use("/api/v1", mealkitsRouter);
 app.use("/api/v1", cartRouter);
 //Contact route
 app.use("/", contactRouter);
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-    method: ["POST"],
-  })
-);
 
 const port = config.PORT || 5000;
 // Listen for incoming request
