@@ -6,6 +6,7 @@ import mealkitsRouter from "./routes/mealkits.js";
 import cartRouter from "./routes/carts.js";
 import contactRouter from "./routes/contact.js";
 import "express-async-errors";
+import cors from "cors";
 
 //Make database connection
 await mongoose
@@ -26,6 +27,7 @@ app.use("/api/v1", mealkitsRouter);
 app.use("/api/v1", cartRouter);
 //Contact route
 app.use("/", contactRouter);
+app.use(cors());
 
 const port = config.PORT || 5000;
 // Listen for incoming request
