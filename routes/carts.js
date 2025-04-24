@@ -11,10 +11,10 @@ import {
 const cartRouter = Router();
 
 //Define routes
-cartRouter.post("/cart/:id", isAuthenticated, addMealkitToCart);
-cartRouter.get("/cart/:id", isAuthenticated, getMealkitCart);
-cartRouter.get("/carts", isAuthenticated, getAllMealkitCarts);
-cartRouter.patch("/cart/:id", isAuthenticated, updateMealkitCart);
-cartRouter.delete("/cart/:id", isAuthenticated, deleteMealkitCart);
+cartRouter.post("/user/cart/:id", isAuthenticated, addMealkitToCart);
+cartRouter.get("/user/cart/:id", isAuthenticated, getMealkitCart);
+cartRouter.get("/user/carts", isAuthenticated, getAllMealkitCarts);
+cartRouter.patch("/user/cart/:id", isAuthenticated, updateMealkitCart);
+cartRouter.delete("/user/cart/:id", isAuthenticated, deleteMealkitCart);
 //Export router
 export default cartRouter;

@@ -12,8 +12,8 @@ export const isAuthorized = (roles) => {
   return async (req, res, next) => {
     //Find user by id
     const user = await UserModel.findById(req.auth.id);
-    //Check if roles include user roles
-    if (roles?.includes(user.role)) {
+    //Check if role is admin
+    if (user?.role === "admin") {
       next();
     } else {
       res.status(403).json("You are not authorized");

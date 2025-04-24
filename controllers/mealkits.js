@@ -1,26 +1,26 @@
 import { MealkitModel } from "../models/mealkit.js";
-import { UserModel } from "../models/user.js";
 import {
   addMealkitValidator,
   updateMealkitImageValidator,
   updateMealkitValidator,
 } from "../validators/mealkits.js";
-import { isAuthenticated, isAuthorized } from "../middlewares/auth.js";
 
 //Add a mealkit controller
 export const addMealkit = async (req, res) => {
   // Validate user input
   const { error, value } = addMealkitValidator.validate({
     ...req.body,
-    image: req.file.filename,
+    image: req.file.path,
   });
   if (error) {
     return res.status(422).json(error);
   }
   //Save product information in database
-  const user = await MealkitModel.create({ ...value, userId: req.auth.id });
+  const mealkit = await MealkitModel.create({ ...value, userId: req.auth.id });
 
-  res.status(201).json({ message: "Mealkit added successfully.", data: user });
+  res
+    .status(201)
+    .json({ message: "Mealkit added successfully.", data: mealkit });
 };
 
 //Get all mealkits controller
@@ -535,7 +535,7 @@ export const updateMealkit = async (req, res) => {
 //Update a mealkit image
 export const updateMealkitImage = async (req, res) => {
   const { error, value } = updateMealkitImageValidator.validate({
-    image: req.file.filename,
+    image: req.file.path,
   });
   if (error) {
     return res.status(422).json(error);

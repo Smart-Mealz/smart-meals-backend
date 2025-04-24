@@ -3,6 +3,8 @@ import {
   loginUser,
   registerUser,
   verifyUserEmail,
+  forgotUserPassword,
+  resetUserPassword,
   changeUserRole,
 } from "../controllers/users.js";
 import { isAuthenticated, isAuthorized } from "../middlewares/auth.js";
@@ -15,11 +17,13 @@ userRouter.post("/users/register", registerUser);
 userRouter.get("/users/verify-email", verifyUserEmail);
 userRouter.post("/users/login", loginUser);
 userRouter.patch(
-  "/users/:id",
+  "/user/:id",
   isAuthenticated,
-  isAuthorized(["user"]),
+  // isAuthorized(["user"]),
   changeUserRole
 );
+userRouter.post("/user/forgot-password", forgotUserPassword);
+userRouter.post("/user/reset-password", resetUserPassword);
 
 //Export router
 export default userRouter;

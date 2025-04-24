@@ -1,8 +1,7 @@
 import mongoose from "mongoose";
 import { Schema, Types, model } from "mongoose";
-import normalize from "normalize-mongoose";
 
-const mealkitSchema = new mongoose.Schema(
+const mealkitSchema = new Schema(
   {
     image: { type: String, required: true },
     title: { type: String, required: true, unique: true },
@@ -17,5 +16,13 @@ const mealkitSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-mealkitSchema.plugin(normalize);
+
+mealkitSchema.set("toJSON", {
+  transform: function (doc, ret) {
+    ret.mealkitId = ret._id;
+    delete ret._id;
+    delete ret.__v;
+  },
+});
+
 export const MealkitModel = model("Mealkit", mealkitSchema);

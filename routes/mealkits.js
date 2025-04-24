@@ -14,7 +14,7 @@ const mealkitsRouter = Router();
 
 //Define routes
 mealkitsRouter.post(
-  "/mealkits",
+  "/admin/mealkit/add",
   isAuthenticated,
   isAuthorized(["admin"]),
   mealkitImageUpload.single("image"),
@@ -22,42 +22,42 @@ mealkitsRouter.post(
 );
 
 mealkitsRouter.get(
-  "/mealkits",
+  "/admin/mealkits",
   isAuthenticated,
   isAuthorized(["admin"]),
   getAllMealkits
 );
 
 mealkitsRouter.get(
-  "/mealkit/:id",
+  "/admin/mealkit/:id",
   isAuthenticated,
   isAuthorized(["admin"]),
   getMealkit
 );
 
 mealkitsRouter.get(
-  "/mealkits",
+  "/admin/mealkits",
   isAuthenticated,
   isAuthorized(["admin"]),
   getAllMealkits
 );
 
 mealkitsRouter.delete(
-  "/mealkit/admin/:id",
+  "/admin/mealkit/:id",
   isAuthenticated,
   isAuthorized(["admin"]),
   deleteMealkit
 );
 
 mealkitsRouter.put(
-  "/mealkit/admin/:id",
+  "/admin/mealkit/:id",
   isAuthenticated,
   isAuthorized(["admin"]),
   updateMealkit
 );
 
 mealkitsRouter.patch(
-  "/mealkit/admin/:id",
+  "/admin/mealkit/:id",
   isAuthenticated,
   isAuthorized(["admin"]),
   mealkitImageUpload.single("image"),

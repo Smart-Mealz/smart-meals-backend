@@ -5,8 +5,10 @@ import userRouter from "./routes/users.js";
 import mealkitsRouter from "./routes/mealkits.js";
 import cartRouter from "./routes/carts.js";
 import contactRouter from "./routes/contact.js";
+import { submitOrder } from "./controllers/orders.js";
 import "express-async-errors";
 import cors from "cors";
+import orderRouter from "./routes/orders.js";
 
 //Make database connection
 await mongoose
@@ -32,6 +34,8 @@ app.use("/api/v1", userRouter);
 app.use("/api/v1", mealkitsRouter);
 //Cart route
 app.use("/api/v1", cartRouter);
+//Order route
+app.use("/api/v1", orderRouter);
 //Contact route
 app.use("/", contactRouter);
 

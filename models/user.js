@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 import normalize from "normalize-mongoose";
-const userSchema = new mongoose.Schema(
+const userSchema = new Schema(
   {
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
@@ -15,9 +15,11 @@ const userSchema = new mongoose.Schema(
       default: "user",
       required: true,
     },
+    forgotPasswordToken: { type: String },
+    forgotPasswordTokenExpires: { type: Date },
   },
   { timestamps: true }
 );
 
 userSchema.plugin(normalize);
-export const UserModel = mongoose.model("User", userSchema);
+export const UserModel = model("User", userSchema);
