@@ -96,121 +96,20 @@ export const addMealkitToCart = async (req, res) => {
 };
 export const getAllMealkitCarts = async (req, res) => {
   try {
-    const {
-      minPrice,
-      maxPrice,
-      sort,
-      order,
-      page = 1,
-      limit = 10,
-      search,
-      category,
-    } = req.query;
-
-    const parsedPage = parseInt(page);
-    const parsedLimit = parseInt(limit);
-    const skip = (parsedPage - 1) * parsedLimit;
-
-    const queryObject = {};
-
-    // Handling price range filters
-    if (minPrice && maxPrice) {
-      queryObject.price = {
-        $gte: parseFloat(minPrice),
-        $lte: parseFloat(maxPrice),
-      };
-    } else if (minPrice) {
-      queryObject.price = {
-        $gte: parseFloat(minPrice),
-      };
-    } else if (maxPrice) {
-      queryObject.price = {
-        $lte: parseFloat(maxPrice),
-      };
-    }
-
-    if (search) {
-      queryObject.$or = [
-        { title: new RegExp(search, "i") }, // Case insensitive search for title
-        { category: new RegExp(search, "i") }, // Case insensitive search for category
-      ];
-    }
-
-    // Category filter with case insensitive search
-    if (category) {
-      queryObject.category = new RegExp(category, "i"); // Case insensitive category search
-    }
-
-    const allCarts = await cartModel.find(queryObject);
-
-    let totalCarts = 0;
-
-    for (let i = 0; i < allCarts.length; i++) {
-      totalCarts += allCarts[i].items.length;
-    }
-
-    const totalPages = Math.ceil(totalCarts / parsedLimit);
-    const startIndex = skip + 1;
-    const endIndex = Math.min(skip + parsedLimit, totalCarts);
-
-    // Sorting Logic
-    let sortObject = {};
-    if (sort) {
-      if (sort === "price-ascending") {
-        sortObject.price = 1; // Sort by price low to high
-      } else if (sort === "price-descending") {
-        sortObject.price = -1; // Sort by price high to low
-      } else if (sort === "title-ascending") {
-        sortObject.title = 1; // Sort by title A-Z
-      } else if (sort === "title-descending") {
-        sortObject.title = -1; // Sort by title Z-A
-      }
-    }
-
-    // Query for mealkits with sorting and pagination
+    // Find all carts for the current user
     const mealkitCarts = await cartModel
-      .find(queryObject)
-      .populate("items.mealkit", "title")
-      .sort(sortObject)
-      .skip(skip)
-      .limit(parsedLimit);
+      .find({ userId: req.auth.id })
+      .populate("items.mealkit", "title");
 
-    //subtotal
+    // Calculate subtotal
     let subtotal = 0;
-
     for (let i = 0; i < mealkitCarts.length; i++) {
       for (let j = 0; j < mealkitCarts[i].items.length; j++) {
         subtotal += mealkitCarts[i].items[j].total;
       }
     }
 
-    // Build base URL for pagination links
-    const baseUrl = `${req.protocol}://${req.get("host")}${req.baseUrl}${
-      req.path
-    }`;
-    const queryParams = new URLSearchParams({ ...req.query });
-
-    const getPageLink = (pageNum) => {
-      queryParams.set("page", pageNum);
-      return `${baseUrl}?${queryParams.toString()}`;
-    };
-
-    const pagination = {
-      currentPage: parsedPage,
-      totalPages,
-      totalCarts,
-      startIndex,
-      endIndex,
-      summaryText: `Showing ${startIndex}–${endIndex} of ${totalCarts} results`,
-      pages: Array.from({ length: totalPages }, (_, i) => i + 1),
-      hasPrevPage: parsedPage > 1 ? getPageLink(parsedPage - 1) : null,
-      hasNextPage: parsedPage < totalPages ? getPageLink(parsedPage + 1) : null,
-      prevPage: parsedPage > 1 ? parsedPage - 1 : null,
-      nextPage: parsedPage < totalPages ? parsedPage + 1 : null,
-    };
-
     res.status(200).json({
-      pagination,
       message: "Carts fetched successfully.",
       mealkitCarts,
       subtotal,
@@ -219,25 +118,6 @@ export const getAllMealkitCarts = async (req, res) => {
     console.error("Error fetching carts:", error);
     res.status(500).json({ message: "Something went wrong" });
   }
-};
-
-export const getMealkitCart = async (req, res) => {
-  const cart = await cartModel
-    .findOne({ userId: req.auth.id })
-    .populate("items.mealkit", "title");
-
-  if (!cart) {
-    return res.status(404).json({ message: "Cart not found!" });
-  }
-
-  if (cart.items.length === 0) {
-    return res.status(200).json({ message: "Your cart is empty." });
-  }
-
-  return res.status(200).json({
-    message: "Cart fetched successfully",
-    cart,
-  });
 };
 
 export const updateMealkitCart = async (req, res) => {

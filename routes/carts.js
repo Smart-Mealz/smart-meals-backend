@@ -2,7 +2,6 @@ import { Router } from "express";
 import { isAuthenticated, isAuthorized } from "../middlewares/auth.js";
 import {
   addMealkitToCart,
-  getMealkitCart,
   getAllMealkitCarts,
   updateMealkitCart,
   deleteMealkitCart,
@@ -12,7 +11,6 @@ const cartRouter = Router();
 
 //Define routes
 cartRouter.post("/user/cart/:id", isAuthenticated, addMealkitToCart);
-cartRouter.get("/user/cart/:id", isAuthenticated, getMealkitCart);
 cartRouter.get("/user/carts", isAuthenticated, getAllMealkitCarts);
 cartRouter.patch("/user/cart/:id", isAuthenticated, updateMealkitCart);
 cartRouter.delete("/user/cart/:id", isAuthenticated, deleteMealkitCart);
