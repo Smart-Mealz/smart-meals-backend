@@ -200,8 +200,6 @@ export const loginUser = async (req, res) => {
     expiresIn: "24h",
   });
 
-  console.log("user.id:", req.auth);
-
   res.status(200).json({
     accessToken,
     message: "User logged in successfully",
