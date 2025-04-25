@@ -37,7 +37,7 @@ mealkitsRouter.get(
 
 mealkitsRouter.get(
   "/admin/mealkits",
-  isAuthenticated,
+  // isAuthenticated,
   // isAuthorized(["admin"]),
   getAllMealkits
 );
