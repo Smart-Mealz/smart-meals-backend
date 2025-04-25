@@ -23,7 +23,7 @@ mealkitsRouter.post(
 
 mealkitsRouter.get(
   "/admin/mealkits",
-  isAuthenticated,
+  // isAuthenticated,
   // isAuthorized(["admin"]),
   getAllMealkits
 );
@@ -35,12 +35,12 @@ mealkitsRouter.get(
   getMealkit
 );
 
-mealkitsRouter.get(
-  "/admin/mealkits",
-  // isAuthenticated,
-  // isAuthorized(["admin"]),
-  getAllMealkits
-);
+// mealkitsRouter.get(
+//   "/admin/mealkits",
+//   // isAuthenticated,
+//   // isAuthorized(["admin"]),
+//   getAllMealkits
+// );
 
 mealkitsRouter.delete(
   "/admin/mealkit/:id",
