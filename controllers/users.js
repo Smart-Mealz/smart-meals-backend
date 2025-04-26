@@ -77,14 +77,16 @@ export const registerUser = async (req, res) => {
       display: inline-block;
       padding: 12px 25px;
       background-color: #007bff;
-      color: white;
+      color: #ffffff !important;
       text-decoration: none;
       border-radius: 5px;
       font-size: 16px;
       text-align: center;
+      border: none;
     }
     .button:hover {
       background-color: #0056b3;
+      color: #ffffff !important;
     }
     .fallback-url {
       margin-top: 20px;
@@ -108,7 +110,7 @@ export const registerUser = async (req, res) => {
       If you’re having trouble with the button above, copy and paste the URL below into your web browser:
     </p>
     <p>
-      <a href="https://smartmealz.netlify.app/verify-email?token=${verificationToken}">http://https://smartmealz.netlify.app/verify-email?token=${verificationToken}</a>
+      <a href="https://smartmealz.netlify.app/verify-email?token=${verificationToken}">https://smartmealz.netlify.app/verify-email?token=${verificationToken}</a>
     </p>
 
     <p>Cheers,</p>
