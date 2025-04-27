@@ -53,7 +53,7 @@ export const submitContactForm = async (req, res) => {
       </head>
       <body>
         <div class="email-container">
-          <h2>Hello ,</h2>
+          <h2>Hello ${contact.firstName},</h2>
           <p>Thank you for contacting SmartMeal!</p>
           <p>We have received your message and our team will get back to you as soon as possible.</p>
           <p>We appreciate you reaching out to us.</p>
