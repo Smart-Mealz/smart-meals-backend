@@ -2,7 +2,14 @@ import Joi from "joi";
 
 export const addMealkitValidator = Joi.object({
   image: Joi.string().required(),
-  tag: Joi.string(),
+  tag: Joi.string().valid(
+    "Spicy",
+    "Sweet",
+    "Vintage",
+    "Savory",
+    "Fresh",
+    "Fruity"
+  ).required,
   title: Joi.string().required(),
   description: Joi.string().required(),
   time: Joi.string().required(),

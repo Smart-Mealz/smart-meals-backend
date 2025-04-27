@@ -3,7 +3,11 @@ import { Schema, Types, model } from "mongoose";
 const mealkitSchema = new Schema(
   {
     image: { type: String, required: true },
-    tag: { type: String, required: true },
+    tag: {
+      type: String,
+      enum: ["Spicy", "Sweet", "Vintage", "Savory", "Fresh", "Fruity"],
+      required: true,
+    },
     title: { type: String, required: true },
     description: { type: String, required: true },
     time: { type: String, required: true },
