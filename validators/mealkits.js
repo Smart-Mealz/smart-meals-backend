@@ -9,10 +9,16 @@ export const addMealkitValidator = Joi.object({
     "Savory",
     "Fresh",
     "Fruity"
-  ).required,
+  ),
   title: Joi.string().required(),
   description: Joi.string().required(),
   time: Joi.string().required(),
+  ingredients: Joi.string().required(),
+  recipeSteps: Joi.string().required(),
+  servings: Joi.number().required(),
+  price: Joi.number().required(),
+  quantity: Joi.number().required(),
+  category: Joi.string().valid("Continental", "Local").required(),
 });
 
 export const updateMealkitValidator = Joi.object({
