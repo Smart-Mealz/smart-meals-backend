@@ -205,7 +205,7 @@ export const loginUser = async (req, res) => {
   res.status(200).json({
     accessToken,
     message: "User logged in successfully",
-    user: { email: user.email },
+    user: { email: user.email, firstname: user.firstname },
   });
 };
 
