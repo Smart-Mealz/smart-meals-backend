@@ -38,7 +38,7 @@ smartmealz-backend/
 │   └── index.ts            # App entry point
 
 
-⚙️ Getting Started
+## ⚙️ Getting Started
 📦 Prerequisites
 Node.js v18+
 
