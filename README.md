@@ -37,6 +37,7 @@ smartmealz-backend/
 ├── config/                 # Environment configs
 │   └── index.ts            # App entry point
 
+---
 
 ## ⚙️ Getting Started
 📦 Prerequisites
