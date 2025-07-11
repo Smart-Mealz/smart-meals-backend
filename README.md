@@ -6,7 +6,9 @@ SmartMealz is a secure and scalable backend application that enables customers t
 
 ## 📚 Project Background
 
-This project was born out of a growing demand for healthy, fast, and waste-free meal prep. I built SmartMealz to simulate a real-world meal kit platform — from user signup and cart handling to region-based delivery fees and admin control.
+SmartMealz was inspired by the growing demand for quick and healthy meal preparation. The traditional approach of grocery shopping and meal planning can be time-consuming and wasteful. With SmartMealz, users can order curated meal kits that come with all the necessary ingredients in exact portions, making home cooking both effortless and efficient.
+
+As the backend developer, I focused on building a reliable and secure API that supports core functionalities such as user authentication, dynamic pricing, order lifecycle management, and admin control over product offerings. The project simulates the real-world operations of a meal kit delivery service and is structured to support future scaling.
 
 ---
 
