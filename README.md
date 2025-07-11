@@ -28,21 +28,22 @@ This project was born out of a growing demand for healthy, fast, and waste-free 
 
 
 
-📁 Project Structure
-bash
-Copy
-Edit
+
+## 📁 Project Structure
+
+```text
 smartmealz-backend/
 ├── src/
-│   ├── controllers/       # Route logic and business functions
-│   ├── routes/            # API route definitions
-│   ├── models/            # Mongoose schemas
-│   ├── middleware/        # Auth, validation, and error handling
-│   ├── utils/             # Helpers (email, pricing, tokens)
-│   └── index.ts           # App entry point
+│   ├── controllers/        # Route logic and business functions
+│   ├── routes/             # API route definitions
+│   ├── models/             # Mongoose schemas
+│   ├── middleware/         # Auth, validation, and error handling
+│   ├── utils/              # Helpers (email, pricing, tokens)
+│   └── index.ts            # App entry point
 ├── .env
 ├── tsconfig.json
 ├── package.json
+
 ⚙️ Getting Started
 📦 Prerequisites
 Node.js v18+
