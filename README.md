@@ -1,6 +1,6 @@
 # 🍽️ SmartMealz – Meal Kit Ordering Platform (Backend)
 
-SmartMealz is a secure and scalable backend application that enables customers to order pre-portioned meal kits for convenient and healthy home cooking. Built using **Node.js**, **Express**, **TypeScript**, and **MongoDB**, it provides a robust RESTful API to manage users, carts, orders, region-based pricing, and meal kit inventory.
+SmartMealz is a secure and scalable backend application that enables customers to order pre-portioned meal kits for convenient and healthy home cooking. Built using **Node.js**, **Express**, and **MongoDB**, it provides a robust RESTful API to manage users, carts, orders, region-based pricing, and meal kit inventory.
 
 ---
 
