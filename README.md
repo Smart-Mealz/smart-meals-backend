@@ -14,20 +14,13 @@ As the backend developer, I focused on building a reliable and secure API that s
 
 ## 🛠 Tech Stack
 
-- **Runtime:** Node.js  
-- **Language:** TypeScript  
-- **Framework:** Express.js  
-- **Database:** MongoDB + Mongoose  
-- **Authentication:** JWT, bcrypt  
-- **File Uploads:** Multer  
-- **Validation:** Express Validator  
-- **Security:** Helmet, CORS, Rate Limiting  
-- **Architecture:** RESTful API
-
-
-
-## 📁 Project Structure
-
+- **Backend Framework:** Node.js + Express  
+- **Database:** MongoDB 
+- **Authentication:** JWT (JSON Web Tokens), bcrypt  
+- **File Uploads:** Multer, Cloudinary  
+- **Validation:** Joi
+- **Email Service:** Nodemailer
+- **Security:** CORS
 
 
 
@@ -36,15 +29,14 @@ As the backend developer, I focused on building a reliable and secure API that s
 ```text
 smartmealz-backend/
 ├── src/
-│   ├── controllers/        # Route logic and business functions
-│   ├── routes/             # API route definitions
+│   ├── controllers/        # Handles business logic
+│   ├── routes/             # API Route definitions
 │   ├── models/             # Mongoose schemas
-│   ├── middleware/         # Auth, validation, and error handling
-│   ├── utils/              # Helpers (email, pricing, tokens)
+│   ├── middleware/         # Authentication and error handlers
+│   ├── utils/              # Utility functions (email, tokens, etc.)
+├── config/                 # Environment configs
 │   └── index.ts            # App entry point
-├── .env
-├── tsconfig.json
-├── package.json
+
 
 ⚙️ Getting Started
 📦 Prerequisites
