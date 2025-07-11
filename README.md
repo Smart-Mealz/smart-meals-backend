@@ -1,27 +1,32 @@
-🍽️ SmartMealz – Meal Kit Ordering Platform (Backend)
-SmartMealz is a secure and scalable web application backend that enables customers to order pre-portioned meal kits for convenient and healthy home cooking. Built using Node.js, Express, TypeScript, and MongoDB, it provides a robust RESTful API to manage users, carts, orders, pricing, and meal kit inventory.
+# 🍽️ SmartMealz – Meal Kit Ordering Platform (Backend)
 
-📚 Project Background
-The demand for fast, healthy, and waste-free meal preparation inspired the creation of SmartMealz. As someone passionate about food and backend engineering, I developed this project to simulate a real-world meal kit delivery platform with features like user authentication, cart management, region-based pricing, and admin functionalities.
+SmartMealz is a secure and scalable backend application that enables customers to order pre-portioned meal kits for convenient and healthy home cooking. Built using **Node.js**, **Express**, **TypeScript**, and **MongoDB**, it provides a robust RESTful API to manage users, carts, orders, region-based pricing, and meal kit inventory.
 
-🛠 Tech Stack
-Runtime: Node.js
+---
 
-Language: TypeScript
+## 📚 Project Background
 
-Framework: Express.js
+This project was born out of a growing demand for healthy, fast, and waste-free meal prep. I built SmartMealz to simulate a real-world meal kit platform — from user signup and cart handling to region-based delivery fees and admin control.
 
-Database: MongoDB (Mongoose ODM)
+---
 
-Authentication: JWT, bcrypt
+## 🛠 Tech Stack
 
-File Uploads: Multer
+- **Runtime:** Node.js  
+- **Language:** TypeScript  
+- **Framework:** Express.js  
+- **Database:** MongoDB + Mongoose  
+- **Authentication:** JWT, bcrypt  
+- **File Uploads:** Multer  
+- **Validation:** Express Validator  
+- **Security:** Helmet, CORS, Rate Limiting  
+- **Architecture:** RESTful API
 
-Validation: Express Validator
 
-Security: Helmet, CORS, Rate Limiting
 
-Architecture: RESTful API
+## 📁 Project Structure
+
+
 
 📁 Project Structure
 bash
