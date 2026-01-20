@@ -47,7 +47,7 @@ export const registerUser = async (req, res) => {
 
   // Send email verification to user via their email address
   await sendEmail({
-    from: config.SMPT_EMAIL,
+    from: config.RESEND_EMAIL,
     to: user.email,
     subject: "Verify your SmartMeal account",
     html: `<!DOCTYPE html>
@@ -176,7 +176,7 @@ export const loginUser = async (req, res) => {
   }
   //Find matching user record in database
   const user = await UserModel.findOne({ email: value.email }).select(
-    "+password"
+    "+password",
   );
 
   if (!user) {

@@ -11,10 +11,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "SmartMealz is a secure and scalable backend application that enables customers to order pre-portioned meal kits for convenient and healthy home cooking. Built using **Node.js**, **Express**, and **MongoDB**, it provides a robust RESTful API to manage users, carts, orders, region-based pricing, and meal kit inventory.",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "cloudinary": "^2.6.0",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.9.0",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "express-async-errors": "^3.1.1",
@@ -23,11 +23,20 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.2",
     "multer": "^1.4.5-lts.2",
-    "multer-storage-cloudinary": "^4.0.0",
-    "nodemailer": "^6.10.0",
-    "normalize-mongoose": "^1.0.0"
+    "multer-storage-cloudinary": "^2.2.1",
+    "nodemailer": "^7.0.12",
+    "normalize-mongoose": "^1.0.0",
+    "resend": "^6.8.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Smart-Mealz/smart-meals-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Smart-Mealz/smart-meals-backend/issues"
+  },
+  "homepage": "https://github.com/Smart-Mealz/smart-meals-backend#readme"
 }
