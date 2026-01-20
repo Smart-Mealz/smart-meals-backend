@@ -231,7 +231,7 @@ export const forgotUserPassword = async (req, res) => {
   if (user) {
     // Send forgot password verification email to user via their email address
     await sendEmail({
-      from: config.SMPT_EMAIL,
+      from: config.RESEND_EMAIL,
       to: user.email,
       subject: "Reset your SmartMeal password",
       html: `<!DOCTYPE html>
