@@ -47,7 +47,7 @@ export const registerUser = async (req, res) => {
 
   // Send email verification to user via their email address
   await sendEmail({
-    from: config.RESEND_EMAIL,
+    from: config.SENDER_EMAIL,
     to: user.email,
     subject: "Verify your SmartMeal account",
     html: `<!DOCTYPE html>
@@ -231,7 +231,7 @@ export const forgotUserPassword = async (req, res) => {
   if (user) {
     // Send forgot password verification email to user via their email address
     await sendEmail({
-      from: config.RESEND_EMAIL,
+      from: config.SENDER_EMAIL,
       to: user.email,
       subject: "Reset your SmartMeal password",
       html: `<!DOCTYPE html>

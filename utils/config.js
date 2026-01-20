@@ -1,6 +1,6 @@
 const PORT = process.env.PORT;
 const MONGODB_URI = process.env.MONGODB;
-const RESEND_EMAIL = process.env.SENDER_EMAIL;
+const SENDER_EMAIL = process.env.SENDER_EMAIL;
 const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY;
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
@@ -11,7 +11,7 @@ const RESEND_API = process.env.RESEND_API;
 export default {
   PORT,
   MONGODB_URI,
-  RESEND_EMAIL,
+  SENDER_EMAIL,
   JWT_SECRET_KEY,
   CLOUDINARY_API_KEY,
   CLOUDINARY_CLOUD_NAME,
