@@ -219,6 +219,13 @@ export const forgotUserPassword = async (req, res) => {
   //Find matching user record in database
   const user = await UserModel.findOne({ email: value.email });
 
+
+  if (!user) {
+  return res.status(200).json({
+    message:
+      "If there's a SmartMeal account connected to this email address, we'll email you password reset instructions. If you don't receive the email, please try again and make sure you enter the email address associated with your SmartMeal account.",
+  });
+}
   //creating a token
   const resetPasswordToken = crypto.randomBytes(16).toString("hex");
   const resetPasswordTokenExpires = Date.now() + 1000 * 60 * 60;
@@ -297,7 +304,7 @@ export const forgotUserPassword = async (req, res) => {
 
     res.status(200).json({
       message:
-        "If there's a SmartMeal account connected to this email address, we’ll email you password reset instructions. If you don’t receive the email, please try again and make sure you enter the email address associated with your SmartMeal account.",
+        "If there's a SmartMeal account connected to this email address, we'll email you password reset instructions. If you don’t receive the email, please try again and make sure you enter the email address associated with your SmartMeal account.",
     });
   }
 };
