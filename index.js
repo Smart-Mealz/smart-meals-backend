@@ -23,25 +23,25 @@ app.use(express.json());
 
 
 //Test cors misconfiguration
-const corsOptions = {
-origin: (origin, callback) => {
-// Allow all subdomains under smartmealz.netlify.app
-if (origin && origin.endsWith('.smartmealz.netlify.app')) {
-return callback(null, true); 
-}
-return callback(new Error('Not allowed by CORS'), false);
-},
-credentials: true, 
-};
+// const corsOptions = {
+// origin: (origin, callback) => {
+// // Allow all subdomains under smartmealz.netlify.app
+// if (origin && origin.endsWith('.smartmealz.netlify.app')) {
+// return callback(null, true); 
+// }
+// return callback(new Error('Not allowed by CORS'), false);
+// },
+// credentials: true, 
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
-// app.use(
-//   cors({
-//     origin: ["http://localhost:5173", "https://smartmealz.netlify.app"],
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: ["http://localhost:5173", "https://smartmealz.netlify.app"],
+    credentials: true,
+  })
+);
 
 //User route
 app.use("/api/v1", userRouter);
