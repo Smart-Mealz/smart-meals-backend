@@ -6,9 +6,15 @@ export const registerUserValidator = Joi.object({
   //username: Joi.string().min(3).max(30),
   email: Joi.string().required().email(),
   password: Joi.string().required(),
-  confirmPassword: Joi.ref("password"),
-  role: Joi.string().valid("user", "admin"),
-}).with("password", "confirmPassword");
+  confirmPassword: Joi.string()
+    .valid(Joi.ref("password"))
+    .required()
+    .messages({
+      "any.only": "Passwords do not match",
+      "any.required": "Confirm password is required",
+    }),
+  role: Joi.string().valid("user", "admin").required(),
+})
 
 export const verifyUserEmailValidator = Joi.object({
   verificationToken: Joi.string(),
