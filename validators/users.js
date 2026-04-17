@@ -13,7 +13,7 @@ export const registerUserValidator = Joi.object({
       "any.only": "Passwords do not match",
       "any.required": "Confirm password is required",
     }),
-  role: Joi.string().valid("user", "admin").required(),
+  role: Joi.string().valid("user", "admin")
 })
 
 export const verifyUserEmailValidator = Joi.object({
